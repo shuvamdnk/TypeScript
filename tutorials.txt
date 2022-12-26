@@ -1,0 +1,17 @@
+var Role;
+(function (Role) {
+    Role[Role["admin"] = 0] = "admin";
+    Role[Role["editor"] = 1] = "editor";
+    Role[Role["author"] = 2] = "author";
+})(Role || (Role = {}));
+var person = {
+    name: "Shuvam",
+    age: 23,
+    hobbies: ['coding', 'listening'],
+    role: Role.admin
+};
+console.log(person.role);
+
+---------------------------------------------------------
+
+
