@@ -1,22 +1,32 @@
 class Department {
-  name: string;
-  constructor(n:string) {
-    this.name = n;
+  // name: string;
+  constructor(public name:string, protected readonly id:string) {
+    // this.name = name;
   }
 
   describe (this:Department){
+    // this.id = 'ss';
     console.log(this.name);
   }
 }
 
-const accounting = new Department('Accounting');
+//  inheritance
+class ITDepertment extends Department{
+  constructor (public id:string){
+    super('IT',id);
+  }
+}
+
+const accounting = new ITDepertment('d2');
 accounting.describe();
-const accountingCopy = {
-    name:'Management',
-    describe:accounting.describe,
-    abcd:'hiii'
-};
-accountingCopy.describe();
+// const accountingCopy = {
+//     name:'Management',
+//     describe:accounting.describe,
+//     abcd:'hiii'
+// };
+// accountingCopy.describe();
+
+
 
 
 
