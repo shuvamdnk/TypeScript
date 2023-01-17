@@ -17,12 +17,22 @@ class ITDepertment extends Department {
         super('IT', id);
         this.id = id;
     }
+    static getInstance() {
+        if (ITDepertment.instance) {
+            return this.instance;
+        }
+        this.instance = new ITDepertment('IT2');
+        return this.instance;
+    }
 }
-const accounting = new ITDepertment('d2');
-accounting.describe();
+// const accounting = new ITDepertment('d2');
+// accounting.describe();
 // const accountingCopy = {
 //     name:'Management',
 //     describe:accounting.describe,
 //     abcd:'hiii'
 // };
 // accountingCopy.describe();
+const it1 = ITDepertment.getInstance();
+const it2 = ITDepertment.getInstance();
+console.log(it1, it2);

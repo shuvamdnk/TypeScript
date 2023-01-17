@@ -12,19 +12,34 @@ class Department {
 
 //  inheritance
 class ITDepertment extends Department{
-  constructor (public id:string){
+  private static instance : ITDepertment;
+  private constructor (public id:string){
     super('IT',id);
   }
+
+  static getInstance(){
+    if(ITDepertment.instance){
+      return this.instance
+    }
+    this.instance = new ITDepertment('IT2')
+    return this.instance;
+  }
+
 }
 
-const accounting = new ITDepertment('d2');
-accounting.describe();
+// const accounting = new ITDepertment('d2');
+// accounting.describe();
 // const accountingCopy = {
 //     name:'Management',
 //     describe:accounting.describe,
 //     abcd:'hiii'
 // };
 // accountingCopy.describe();
+
+const it1 = ITDepertment.getInstance();
+const it2 = ITDepertment.getInstance();
+console.log(it1,it2);
+
 
 
 
