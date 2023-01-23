@@ -1,48 +1,22 @@
-class Department {
-  // name: string;
-  constructor(public name:string, protected readonly id:string) {
-    // this.name = name;
-  }
+// interface
+interface Person{
+  name:string;
+  age:number;
 
-  describe (this:Department){
-    // this.id = 'ss';
-    console.log(this.name);
+  greet(message:string) : void;
+}
+
+let user1:Person;
+user1 = {
+  name:"Shuvam",
+  age:24,
+  greet(message:string){
+    console.log(message +' '+ this.name);
+    
   }
 }
 
-//  inheritance
-class ITDepertment extends Department{
-  private static instance : ITDepertment;
-  private constructor (public id:string){
-    super('IT',id);
-  }
-
-  static getInstance(){
-    if(ITDepertment.instance){
-      return this.instance
-    }
-    this.instance = new ITDepertment('IT2')
-    return this.instance;
-  }
-
-}
-
-// const accounting = new ITDepertment('d2');
-// accounting.describe();
-// const accountingCopy = {
-//     name:'Management',
-//     describe:accounting.describe,
-//     abcd:'hiii'
-// };
-// accountingCopy.describe();
-
-const it1 = ITDepertment.getInstance();
-const it2 = ITDepertment.getInstance();
-console.log(it1,it2);
-
-
-
-
+user1.greet('Welcome : ')
 
 
 
